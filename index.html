@@ -379,10 +379,10 @@
             
             // Update button text and save preference
             if (body.classList.contains('light-mode')) {
-                themeBtn.textContent = '🌙 Dark Mode';
+                themeBtn.textContent = '⏾';
                 localStorage.setItem('theme', 'light');
             } else {
-                themeBtn.textContent = '☀️ Light Mode';
+                themeBtn.textContent = '☀︎';
                 localStorage.setItem('theme', 'dark');
             }
         }
@@ -394,7 +394,7 @@
             
             if (savedTheme === 'light') {
                 document.body.classList.add('light-mode');
-                themeBtn.textContent = '🌙 Dark Mode';
+                themeBtn.textContent = '⏾';
             }
         };
     </script>
