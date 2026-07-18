@@ -45,6 +45,7 @@
             color: var(--text-main);
             line-height: 1.7;
             transition: background-color 0.3s ease, color 0.3s ease;
+            padding-bottom: 4rem; /* Added so content isn't hidden behind the footer */
         }
 
         /* --- Navigation Bar --- */
@@ -216,6 +217,44 @@
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
         }
 
+        /* --- Footer Styling --- */
+        .sticky-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--bg-nav);
+            border-top: 1px solid var(--border-color);
+            padding: 1rem 0;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-content a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-content a:hover {
+            color: var(--accent);
+        }
+
+        .footer-separator {
+            color: var(--text-muted);
+            opacity: 0.5;
+        }
+
         /* --- Mobile Responsiveness --- */
         @media (max-width: 850px) {
             .about-layout.active-tab {
@@ -248,6 +287,15 @@
             .course-list li {
                 text-align: left;
             }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .footer-separator {
+                display: none; /* Hide the separator on mobile to stack links cleanly */
+            }
         }
     </style>
 </head>
@@ -262,7 +310,7 @@
             <li><a href="cv.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
             <!-- Theme Toggle Button -->
             <li class="theme-toggle-container">
-                <a href="#" id="theme-toggle" onclick="toggleTheme(event)">☀︎</a>
+                <a href="#" id="theme-toggle" onclick="toggleTheme(event)">☀️ Light Mode</a>
             </li>
         </ul>
     </nav>
@@ -351,6 +399,15 @@
         </div>
     </main>
 
+    <!-- Sticky Footer -->
+    <footer class="sticky-footer">
+        <div class="footer-content">
+            <a href="mailto:rdadlani@sas.upenn.edu">rdadlani@sas.upenn.edu</a>
+            <span class="footer-separator">|</span>
+            <a href="https://linkedin.com/in/rishimd6" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+    </footer>
+
     <!-- JavaScript for Tabs and Theme -->
     <script>
         // --- Tab Switching Logic ---
@@ -379,10 +436,10 @@
             
             // Update button text and save preference
             if (body.classList.contains('light-mode')) {
-                themeBtn.textContent = '⏾';
+                themeBtn.textContent = '🌙 Dark Mode';
                 localStorage.setItem('theme', 'light');
             } else {
-                themeBtn.textContent = '☀︎';
+                themeBtn.textContent = '☀️ Light Mode';
                 localStorage.setItem('theme', 'dark');
             }
         }
@@ -394,7 +451,7 @@
             
             if (savedTheme === 'light') {
                 document.body.classList.add('light-mode');
-                themeBtn.textContent = '⏾';
+                themeBtn.textContent = '🌙 Dark Mode';
             }
         };
     </script>
