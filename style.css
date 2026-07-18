@@ -1,0 +1,156 @@
+/* --- Base Reset & Typography --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #303030;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    background-color: #000000;
+    padding: 1.2rem 0;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: opacity 0.2s;
+}
+
+.navbar a:hover, 
+.navbar a.active {
+    font-weight: bold;
+}
+
+/* --- Main Layout --- */
+.container {
+    max-width: 1100px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+}
+
+/* --- Tab Logic --- */
+.tab-content {
+    display: none; /* Hide all tabs by default */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-content.active-tab {
+    display: block; /* Show the active tab */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Layout specifically for the About section (Text + Image side-by-side) */
+.about-layout.active-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+/* --- Content Styling --- */
+.content {
+    flex: 1;
+    max-width: 600px;
+}
+
+/* For tabs that shouldn't be constrained to the 600px width */
+.content.full-width {
+    max-width: 800px;
+    margin: 0 auto; /* Center it */
+}
+
+.content h1 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 0.5rem;
+}
+
+.content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    color: #eaeaea;
+}
+
+/* Styling for lists in the Coursework tab */
+.course-list {
+    list-style-type: disc;
+    margin-left: 2rem;
+    color: #eaeaea;
+    font-size: 1.05rem;
+}
+
+.course-list li {
+    margin-bottom: 0.5rem;
+}
+
+/* Styling for entries in the Research tab */
+.entry {
+    margin-bottom: 2rem;
+}
+
+.entry h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
+}
+
+.entry .date {
+    font-style: italic;
+    color: #aaaaaa;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+}
+
+/* Profile Image Container */
+.image-container {
+    flex: 0 0 400px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 850px) {
+    .about-layout.active-tab {
+        flex-direction: column;
+        margin: 3rem auto;
+        gap: 2.5rem;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .image-container {
+        flex: 0 0 100%;
+        max-width: 400px;
+    }
+}
