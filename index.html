@@ -55,10 +55,16 @@
         /* --- Navigation Bar --- */
         .navbar {
             background-color: var(--bg-nav);
-            padding: 1.2rem 2rem;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             border-bottom: 1px solid var(--border-color);
             transition: background-color 0.3s ease, border-color 0.3s ease;
+            width: 100%;
+        }
+
+        .nav-container {
+            max-width: 1050px; /* Matches the main content container exactly */
+            margin: 0 auto;    /* Centers the navigation items */
+            padding: 1.2rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -72,7 +78,7 @@
             white-space: nowrap;
         }
 
-        .navbar ul {
+        .nav-container ul {
             list-style: none;
             display: flex;
             align-items: center;
@@ -81,7 +87,7 @@
             margin-left: auto;
         }
 
-        .navbar a {
+        .nav-container a {
             color: var(--text-muted);
             text-decoration: none;
             font-size: 1rem;
@@ -89,20 +95,20 @@
             transition: color 0.2s ease, text-decoration 0.2s ease;
         }
 
-        .navbar a:hover {
+        .nav-container a:hover {
             color: var(--accent-hover);
         }
 
-        .navbar a.active {
+        .nav-container a.active {
             color: var(--accent);
             font-weight: 600;
         }
 
         #theme-toggle {
             background-color: var(--image-bg);
-            padding: 0.5rem 0.8rem; /* Slightly narrowed padding for just an emoji */
+            padding: 0.5rem 0.8rem; 
             border-radius: 20px;
-            font-size: 1.2rem; /* Made the emoji slightly larger */
+            font-size: 1.2rem; 
             margin-left: 1rem;
             display: inline-flex;
             align-items: center;
@@ -111,7 +117,7 @@
 
         /* --- Main Layout --- */
         .container {
-            max-width: 1050px;
+            max-width: 1050px; /* This defines the exact width of your content */
             margin: 4rem auto;
             padding: 0 2rem;
         }
@@ -167,6 +173,19 @@
             margin-bottom: 1.2rem;
             font-size: 1.05rem;
             color: var(--text-muted);
+        }
+
+        /* Inline Content Links */
+        .content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--text-muted);
+            transition: border-bottom-color 0.2s ease, color 0.2s ease;
+        }
+
+        .content a:hover {
+            border-bottom-color: var(--accent);
+            color: var(--text-main);
         }
 
         /* --- Research Cards --- */
@@ -299,13 +318,13 @@
 
         /* --- Mobile Responsiveness --- */
         @media (max-width: 900px) {
-            .navbar {
+            .nav-container {
                 flex-direction: column;
                 gap: 1.5rem;
                 padding: 1.5rem;
             }
 
-            .navbar ul {
+            .nav-container ul {
                 margin-left: 0;
                 justify-content: center;
                 gap: 1.2rem;
@@ -351,18 +370,19 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar (Split Layout) -->
+    <!-- Navigation Bar (With aligned inner container) -->
     <nav class="navbar">
-        <div class="nav-brand">Rishi Dadlani</div>
-        <ul>
-            <li><a href="#" class="tab-link active" onclick="openTab(event, 'about')">About</a></li>
-            <li><a href="#" class="tab-link" onclick="openTab(event, 'research')">Research</a></li>
-            <li><a href="#" class="tab-link" onclick="openTab(event, 'teaching')">Teaching</a></li>
-            <li><a href="#" class="tab-link" onclick="openTab(event, 'coursework')">Coursework</a></li>
-            <li><a href="cv.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
-            <!-- Updated Theme Toggle Button -->
-            <li><a href="#" id="theme-toggle" onclick="toggleTheme(event)">☀︎</a></li>
-        </ul>
+        <div class="nav-container">
+            <div class="nav-brand">Rishi Dadlani</div>
+            <ul>
+                <li><a href="#" class="tab-link active" onclick="openTab(event, 'about')">About</a></li>
+                <li><a href="#" class="tab-link" onclick="openTab(event, 'research')">Research</a></li>
+                <li><a href="#" class="tab-link" onclick="openTab(event, 'teaching')">Teaching</a></li>
+                <li><a href="#" class="tab-link" onclick="openTab(event, 'coursework')">Coursework</a></li>
+                <li><a href="cv.pdf" target="_blank" rel="noopener noreferrer">CV</a></li>
+                <li><a href="#" id="theme-toggle" onclick="toggleTheme(event)">☀︎</a></li>
+            </ul>
+        </div>
     </nav>
 
     <!-- Main Content Container -->
@@ -371,10 +391,10 @@
         <!-- ABOUT TAB -->
         <div id="about" class="tab-content active-tab about-layout">
             <div class="content">
-                <p>Hi! My name is Rishi (he/him), and I'm a student at the University of Pennsylvania (2023-2027).</p>
-                <p>I'm currently working toward a bachelor's and accelerated master's degree in mathematics. My primary interests are in geometry/topology, leaning on the analytic side.</p>
-                <p>Outside of math, I also play the flute and lift.</p>
-                <p>This site is a WIP!</p>
+                <p>Hello! My name is Rishi (he/him). I'm a senior at the University of Pennsylvania studying mathematics under the supervision of Prof. Dennis DeTurck.</p>
+                <p>I am currently applying to PhD programs, with a primary focus on differential geometry, though I am also interested in probability theory.</p>
+                <p>Aside from math, I also enjoy lifting and playing the flute; I am currently working on Prokofiev's Sonata in D Major.</p>
+                <p>This site is currently a WIP!</p>
             </div>
             
             <div class="image-container">
@@ -391,14 +411,14 @@
                     <h2>University of Michigan REU</h2>
                     <p class="date">Summer 2026</p>
                     <p>Studying exponential directed last passage percolation (DLPP) conditioned under an upper deviation event and with varying initial boundary.</p>
-                    <p>Supervised by Prof. Jinho Baik.</p>
+                    <p>Supervised by <a href="https://sites.lsa.umich.edu/baik/" target="_blank" rel="noopener noreferrer">Prof. Jinho Baik</a>.</p>
                 </div>
 
                 <div class="entry card">
                     <h2>NSF Center for Analysis and Prediction of Pandemic Expansion (APPEX)</h2>
                     <p class="date">Summer 2025</p>
                     <p>Studied the dynamics of collective action.</p>
-                    <p>Supervised by Prof. Nina Fefferman.</p>
+                    <p>Supervised by <a href="https://search.asu.edu/profile/5533713" target="_blank" rel="noopener noreferrer">Prof. Nina Fefferman</a>.</p>
                 </div>
             </div>
         </div>
@@ -483,7 +503,6 @@
             
             body.classList.toggle('light-mode');
             
-            // Updated to swap between the specific emojis
             if (body.classList.contains('light-mode')) {
                 themeBtn.textContent = '⏾';
                 localStorage.setItem('theme', 'light');
